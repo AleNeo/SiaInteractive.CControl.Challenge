@@ -1,5 +1,0 @@
-C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net9.0\SiaInteractive.CControl.Challenge.Infrastructure.csproj.AssemblyReference.cache
-C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net9.0\SiaInteractive.CControl.Challenge.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net9.0\SiaInteractive.CControl.Challenge.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net9.0\SiaInteractive.CControl.Challenge.Infrastructure.AssemblyInfo.cs
-C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net9.0\SiaInteractive.CControl.Challenge.Infrastructure.csproj.CoreCompileInputs.cache

@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using SiaInteractive.CControl.Challenge.Application.Interfaces;
-using SiaInteractive.CControl.Challenge.Application.DTOs;
 using System.Threading.Tasks;
-using System;
+using Microsoft.AspNetCore.Identity;
+using SiaInteractive.CControl.Challenge.Api.Models;
 
 namespace SiaInteractive.CControl.Challenge.Api.Controllers;
 
@@ -10,24 +9,43 @@ namespace SiaInteractive.CControl.Challenge.Api.Controllers;
 [Route("api/[controller]")]
 public class UsersController : ControllerBase
 {
-    private readonly IUserService _userService;
+    private readonly UserManager<IdentityUser> _userManager;
 
-    public UsersController(IUserService userService)
+
+    public UsersController(UserManager<IdentityUser> userManager)
     {
-        _userService = userService;
+       
+        _userManager = userManager;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetAllUsers()
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterModel model)
     {
-        var users = await _userService.GetAllUsersAsync();
-        return Ok(users);
+        if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
+        {
+            return BadRequest();
+        }
+
+        var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+        var result = await _userManager.CreateAsync(user, model.Password);
+        if (result.Succeeded)
+        {
+            return Ok(new { message = "user registered successfully!!!" });
+        }
+        return BadRequest(result.Errors);
     }
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetUserById(Guid id)
+
+    [HttpGet("{email}")]
+    public async Task<IActionResult> GetUserByName(string email)
     {
-        var user = await _userService.GetUserByIdAsync(id);
+        if (string.IsNullOrEmpty(email))
+        {
+            return BadRequest();
+        }
+
+        var user = await _userManager.FindByNameAsync(email);
+
         if (user == null)
         {
             return NotFound();
@@ -35,54 +53,50 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
-    [HttpPost]
-    public async Task<IActionResult> CreateUser([FromBody] UserCreateDto userCreateDto)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
 
-        var createdUser = await _userService.CreateUserAsync(userCreateDto);
-        return CreatedAtAction(nameof(GetUserById), new { id = createdUser.UserId }, createdUser);
-    }
-
-    [HttpPatch("{id}")]
-    public async Task<IActionResult> UpdateUser(Guid id, [FromBody] UserUpdateDto userUpdateDto)
+    [HttpPatch("reset-password")]
+    public async Task<IActionResult> UpdateUserPassword([FromBody] UpdateModel model)
     {
-        if (!ModelState.IsValid)
+        if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
         {
             return BadRequest();
         }
 
-        var updatedUser = await _userService.UpdateUserAsync(id,userUpdateDto);
-        if (updatedUser == null)
+        var user = await _userManager.FindByNameAsync(model.Email);
+        user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, model.Password);
+        var result = await _userManager.UpdateAsync(user);
+
+        if (!result.Succeeded)
+        {
+            return BadRequest(result.Errors);
+        }
+
+        return NoContent();
+    }
+
+    [HttpDelete("{email}")]
+    public async Task<IActionResult> DeleteUser(string email)
+    {
+        if (string.IsNullOrEmpty(email))
+        {
+            return BadRequest();
+        }
+
+        var user = await _userManager.FindByNameAsync(email);
+
+        if (user == null)
         {
             return NotFound();
         }
-        return NoContent();
-    }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteUser(Guid id)
-    {
-        var result = await _userService.DeleteUserAsync(id);
-        if (!result)
+        var result = await _userManager.DeleteAsync(user);
+        if (!result.Succeeded)
         {
-            return NotFound();
+            return BadRequest(result.Errors);
         }
+
         return NoContent();
     }
 
-    [HttpPost("login")]
-    public async Task<IActionResult> Login()
-    {
-        return Ok();
-    }
 
-    [HttpPost("logout")]
-    public IActionResult Logout()
-    {        
-        return NoContent();
-    }
 }
