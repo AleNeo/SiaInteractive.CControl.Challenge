@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SiaInteractive.CControl.Challenge.Domain/1.0.0": {
+        "runtime": {
+          "SiaInteractive.CControl.Challenge.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SiaInteractive.CControl.Challenge.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,17 @@
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.deps.json
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.runtimeconfig.json
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.dll
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.pdb
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.dll
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.pdb
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.AssemblyInfo.cs
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInter.546F0CAF.Up2Date
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.dll
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\refint\SiaInteractive.CControl.Challenge.Infrastructure.dll
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.pdb
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Infrastructure.genruntimeconfig.cache
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Infrastructure\obj\Debug\net8.0\ref\SiaInteractive.CControl.Challenge.Infrastructure.dll

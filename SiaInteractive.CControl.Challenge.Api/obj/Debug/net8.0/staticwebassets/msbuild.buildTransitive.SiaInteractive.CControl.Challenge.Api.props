@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\SiaInteractive.CControl.Challenge.Api.props" />
+</Project>

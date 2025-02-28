@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" />
+    <PackageReference Include="Moq" Version="4.18.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SiaInteractive.CControl.Challenge.Application\SiaInteractive.CControl.Challenge.Application.csproj" />
+    <ProjectReference Include="..\SiaInteractive.CControl.Challenge.Domain\SiaInteractive.CControl.Challenge.Domain.csproj" />
+    <ProjectReference Include="..\SiaInteractive.CControl.Challenge.Infrastructure\SiaInteractive.CControl.Challenge.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

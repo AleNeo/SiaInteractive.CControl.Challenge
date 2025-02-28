@@ -1,0 +1,11 @@
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.AssemblyInfoInputs.cache
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.AssemblyInfo.cs
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.deps.json
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.dll
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\bin\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.pdb
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.dll
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\obj\Debug\net8.0\refint\SiaInteractive.CControl.Challenge.Domain.dll
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\obj\Debug\net8.0\SiaInteractive.CControl.Challenge.Domain.pdb
+C:\Users\Alejandro Gladchtein\source\repos\SiaInteractive.CControl.Challenge\SiaInteractive.CControl.Challenge.Domain\obj\Debug\net8.0\ref\SiaInteractive.CControl.Challenge.Domain.dll
