@@ -110,6 +110,7 @@ public class Startup
 
         app.UseHttpsRedirection();
         app.UseRouting();
+        app.UseWebSockets();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseIdentityServer();
