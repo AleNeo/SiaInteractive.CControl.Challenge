@@ -1,70 +1,103 @@
-# SiaInteractive.CControl.Challenge
+# SiaInteractive CControl Challenge
 
-## Overview
-SiaInteractive.CControl.Challenge is a RESTful API built using Microsoft .NET 9, following clean architecture principles. The API provides functionalities to manage users, including CRUD operations and authentication features such as login and logout.
+Este proyecto es una solución para el desafío de CControl de SiaInteractive. La solución está estructurada en varios niveles (tiers) y utiliza tecnologías como ASP.NET Core, Entity Framework Core y Serilog para el registro de logs.
 
-## Project Structure
-The project is organized into several layers:
+## Estructura del Proyecto
 
-- **Api**: Contains the controllers and the entry point for the application.
-- **Application**: Contains the business logic, services, and data transfer objects (DTOs).
-- **Domain**: Contains the core entities and interfaces for data access.
-- **Infrastructure**: Contains the data access implementation, logging configuration, and migrations.
-- **Tests**: Contains unit tests for the API, application services, and infrastructure components.
+La solución está organizada en los siguientes directorios:
 
-## Technologies Used
-- .NET 9
-- Entity Framework 9
-- SQL Server Express
-- Serilog for logging
-- Swagger for API documentation
+- **SiaInteractive.CControl.Challenge.Api**: Contiene la API principal del proyecto.
+- **SiaInteractive.CControl.Challenge.Application**: Contiene la lógica de aplicación.
+- **SiaInteractive.CControl.Challenge.Domain**: Contiene las entidades de dominio y las interfaces.
+- **SiaInteractive.CControl.Challenge.Infrastructure**: Contiene la implementación de la infraestructura, como el acceso a datos.
+- **SiaInteractive.CControl.Challenge.Tests**: Contiene las pruebas unitarias del proyecto.
 
-## Setup Instructions
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```
-   cd SiaInteractive.CControl.Challenge
-   ```
-3. Restore the NuGet packages:
-   ```
-   dotnet restore
-   ```
-4. Update the connection string in `SiaInteractive.CControl.Challenge.Api/appsettings.json` to point to your SQL Server Express instance.
-5. Run the migrations to set up the database:
-   ```
-   dotnet ef database update --project SiaInteractive.CControl.Challenge.Infrastructure
-   ```
-6. Start the API:
-   ```
-   dotnet run --project SiaInteractive.CControl.Challenge.Api
-   ```
+## Configuración
 
-## Usage
-- The API provides endpoints for managing users, including:
-  - **Create User**: POST /api/users
-  - **Get User**: GET /api/users/{id}
-  - **Update User**: PUT /api/users/{id}
-  - **Delete User**: DELETE /api/users/{id}
-  - **Login**: POST /api/users/login
-  - **Logout**: POST /api/users/logout
+### appsettings.json
 
-## API Documentation
-Swagger documentation is available at `/swagger` once the API is running. This provides detailed information about each endpoint, including request and response formats.
+El archivo `appsettings.json` contiene la configuración de la aplicación, incluyendo la configuración de JWT, cadenas de conexión, niveles de registro y configuración de Serilog.
 
-## Logging
-Serilog is configured for logging application events. Logs can be found in the specified output location in the `appsettings.json` file.
+```json
+{
+  "Jwt": {
+    "Key": "YourVeryLongSecretKeyThatIsAtLeast32CharactersLong",
+    "Issuer": "YourIssuer",
+    "Audience": "YourAudience"
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=CControlDb;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.Console" ],
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      { "Name": "Console" }
+    ]
+  },
+  "Swagger": {
+    "Endpoint": "/swagger/v1/swagger.json",
+    "Name": "SiaInteractive API"
+  }
+}
 
-## Testing
-Unit tests are included for the API controllers, application services, and infrastructure components. To run the tests, use:
-```
+##Construcción y Ejecución
+Restaurar Paquetes NuGet
+
+dotnet restore
+
+Asegúrate de que todos los paquetes NuGet necesarios estén restaurados.
+
+##Construir la Solución
+Construye la solución para identificar cualquier error.
+
+dotnet build SiaInteractive.CControl.Challenge.sln
+
+##Crear la Base de Datos
+Aplica las migraciones para crear la base de datos.
+
+dotnet ef migrations add InitialCreate --project SiaInteractive.CControl.Challenge.Infrastructure
+dotnet ef database update --project SiaInteractive.CControl.Challenge.Infrastructure
+
+##Ejecutar la Aplicación
+Inicia la API.
+
+dotnet run --project SiaInteractive.CControl.Challenge.Api
+
+##Ejecutar Pruebas
+Ejecuta las pruebas unitarias para asegurarte de que todo funcione correctamente.
+
 dotnet test
-```
 
-## Contributing
-Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.
+##Controladores
+AuthController
+POST /api/auth/login: Inicia sesión y genera un token JWT.
+POST /api/auth/logout: Cierra la sesión del usuario actual.
+UsersController
+POST /api/users/register: Registra un nuevo usuario.
+GET /api/users/{email}: Obtiene un usuario por email.
+PATCH /api/users/reset-password: Restablece la contraseña de un usuario.
+DELETE /api/users/{email}: Elimina un usuario por email.
+WindowAppController
+POST /api/windowapp: Crea una nueva aplicación de ventana.
+GET /api/windowapp/{id}: Obtiene una aplicación de ventana por ID.
+GET /api/windowapp: Obtiene todas las aplicaciones de ventana.
+PUT /api/windowapp/{id}: Actualiza una aplicación de ventana.
+DELETE /api/windowapp/{id}: Elimina una aplicación de ventana por ID.
+GET /api/windowapp/name/{windowAppName}/instance/{windowAppInstance}: Obtiene una aplicación de ventana por nombre e instancia.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+##Contribuciones
+Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para discutir cualquier cambio que desees realizar.
+
+##Licencia
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+

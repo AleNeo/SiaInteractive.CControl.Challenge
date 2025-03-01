@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
+using System.Linq;
 
 namespace SiaInteractive.CControl.Challenge.Infrastructure.Data.Repository;
 
@@ -47,5 +48,11 @@ public class WindowAppRepository : IWindowAppRepository
             _context.WindowApps.Remove(windowApp);
             await _context.SaveChangesAsync();
         }
+    }
+
+    public async Task<WindowApp> GetWindowAppByNameAndInstanceAsync(string windowAppName, int windowAppInstance)
+    {
+        return await _context.WindowApps
+            .FirstOrDefaultAsync(w => w.AppName == windowAppName && w.AppInstance == windowAppInstance);
     }
 }

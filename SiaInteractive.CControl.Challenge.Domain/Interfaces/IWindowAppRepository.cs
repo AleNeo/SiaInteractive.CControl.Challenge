@@ -8,6 +8,7 @@ namespace SiaInteractive.CControl.Challenge.Domain.Interfaces;
 public interface IWindowAppRepository
 {
     Task<WindowApp> GetWindowAppByIdAsync(Guid id);
+    Task<WindowApp> GetWindowAppByNameAndInstanceAsync(string windowAppName, int windowAppInstance);
     Task<IEnumerable<WindowApp>> GetAllWindowAppsAsync();
     Task<Guid> AddWindowAppAsync(WindowApp windowApp);
     Task UpdateWindowAppAsync(WindowApp windowApp);

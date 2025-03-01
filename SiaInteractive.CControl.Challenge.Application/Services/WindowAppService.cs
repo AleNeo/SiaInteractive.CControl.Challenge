@@ -105,4 +105,18 @@ public class WindowAppService : IWindowAppService
 
         return true;
     }
+
+    public async Task<WindowAppDto> GetWindowAppByNameAndInstanceAsync(string windowAppName, int windowAppInstance)
+    {
+        var windowApp = await _windowAppRepository.GetWindowAppByNameAndInstanceAsync(windowAppName, windowAppInstance);
+        if (windowApp == null) return null;
+
+        return new WindowAppDto(windowApp.Id,
+            windowApp.AppName,
+            windowApp.AppInstance,
+            windowApp.XPosition,
+            windowApp.YPosition,
+            windowApp.Width,
+            windowApp.Height);
+    }
 }

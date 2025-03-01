@@ -9,6 +9,7 @@ public interface IWindowAppService
 {
     Task<WindowAppDto> CreateWindowAppAsync(WindowAppCreateDto windowAppCreateDto);
     Task<WindowAppDto> GetWindowAppByIdAsync(Guid windowAppId);
+    Task<WindowAppDto> GetWindowAppByNameAndInstanceAsync(string windowAppName, int windowAppInstance);
     Task<IEnumerable<WindowAppDto>> GetAllWindowAppsAsync();
     Task<WindowAppDto> UpdateWindowAppAsync(Guid windowAppId, WindowAppUpdateDto windowAppUpdateDto);
     Task<bool> DeleteWindowAppAsync(Guid windowAppId);

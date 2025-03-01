@@ -26,6 +26,11 @@ public class AuthController : ControllerBase
         _configuration = configuration;
     }
 
+    /// <summary>
+    /// Logs in a user and generates a JWT token.
+    /// </summary>
+    /// <param name="model">The login model containing email and password.</param>
+    /// <returns>A JWT token if login is successful.</returns>
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginModel model)
     {
@@ -39,6 +44,10 @@ public class AuthController : ControllerBase
         return Unauthorized();
     }
 
+    /// <summary>
+    /// Logs out the current user.
+    /// </summary>
+    /// <returns>A message indicating the user has been logged out.</returns>
     [HttpPost("logout")]
     public async Task<IActionResult> Logout()
     {

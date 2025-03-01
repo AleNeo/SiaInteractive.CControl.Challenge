@@ -17,6 +17,9 @@ using System.Collections.Generic;
 using Duende.IdentityServer.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Reflection;
+using System.IO;
+using System;
 
 public class Startup
 {
@@ -43,11 +46,11 @@ public class Startup
             .AddAspNetIdentity<IdentityUser>()
             .AddInMemoryApiScopes(new List<ApiScope>
             {
-                new ApiScope("api.read", "Leer API"),
-                new ApiScope("api.write", "Escribir API")
+                new ApiScope("api.read", "Read API"),
+                new ApiScope("api.write", "Write API")
             })
-            .AddInMemoryClients(new List<Client>
-            {
+            .AddInMemoryClients(
+            [
                 new Client
                 {
                     ClientId = "client",
@@ -55,8 +58,8 @@ public class Startup
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     AllowedScopes = { "api.read" }
                 }
-            })
-            .AddDeveloperSigningCredential(); // NO USAR en Producción
+            ])
+            .AddDeveloperSigningCredential(); 
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -82,32 +85,10 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "SiaInteractive.CControl.Challenge API", Version = "v1" });
-
-            // Configuración para JWT
-            c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-            {
-                Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-                Name = "Authorization",
-                In = ParameterLocation.Header,
-                Type = SecuritySchemeType.ApiKey,
-                Scheme = "Bearer"
-            });
-
-            c.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    },
-                    new string[] {}
-                }
-            });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sia Interactive CControl Challenge API", Version = "v1" });           
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            c.IncludeXmlComments(xmlPath);
         });
 
         Log.Logger = new LoggerConfiguration()
@@ -132,6 +113,9 @@ public class Startup
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseIdentityServer();
+
+        app.UseMiddleware<SiaInteractive.CControl.Challenge.Api.Middlewares.AuthenticationMiddleware>();
+
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();

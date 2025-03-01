@@ -11,14 +11,21 @@ public class UsersController : ControllerBase
 {
     private readonly UserManager<IdentityUser> _userManager;
 
-
     public UsersController(UserManager<IdentityUser> userManager)
     {
-       
         _userManager = userManager;
     }
 
+    /// <summary>
+    /// Registers a new user.
+    /// </summary>
+    /// <param name="model">The registration model containing email and password.</param>
+    /// <returns>A message indicating the user has been registered successfully.</returns>
+    /// <response code="200">If the user is registered successfully</response>
+    /// <response code="400">If the registration fails</response>
     [HttpPost("register")]
+    [ProducesResponseType(typeof(object), 200)]
+    [ProducesResponseType(400)]
     public async Task<IActionResult> Register([FromBody] RegisterModel model)
     {
         if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
@@ -35,8 +42,18 @@ public class UsersController : ControllerBase
         return BadRequest(result.Errors);
     }
 
-
+    /// <summary>
+    /// Gets a user by email.
+    /// </summary>
+    /// <param name="email">The email of the user.</param>
+    /// <returns>The user details.</returns>
+    /// <response code="200">Returns the user details</response>
+    /// <response code="400">If the email is null or empty</response>
+    /// <response code="404">If the user is not found</response>
     [HttpGet("{email}")]
+    [ProducesResponseType(typeof(IdentityUser), 200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
     public async Task<IActionResult> GetUserByName(string email)
     {
         if (string.IsNullOrEmpty(email))
@@ -53,8 +70,16 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
-
+    /// <summary>
+    /// Resets the password of a user.
+    /// </summary>
+    /// <param name="model">The update model containing email and new password.</param>
+    /// <returns>No content if the password is updated successfully.</returns>
+    /// <response code="204">If the password is updated successfully</response>
+    /// <response code="400">If the update fails</response>
     [HttpPatch("reset-password")]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(400)]
     public async Task<IActionResult> UpdateUserPassword([FromBody] UpdateModel model)
     {
         if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
@@ -74,7 +99,18 @@ public class UsersController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Deletes a user by email.
+    /// </summary>
+    /// <param name="email">The email of the user to delete.</param>
+    /// <returns>No content if the user is deleted successfully.</returns>
+    /// <response code="204">If the user is deleted successfully</response>
+    /// <response code="400">If the email is null or empty</response>
+    /// <response code="404">If the user is not found</response>
     [HttpDelete("{email}")]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
     public async Task<IActionResult> DeleteUser(string email)
     {
         if (string.IsNullOrEmpty(email))
@@ -97,6 +133,4 @@ public class UsersController : ControllerBase
 
         return NoContent();
     }
-
-
 }
