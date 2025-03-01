@@ -85,6 +85,7 @@ Inicia la API.
 ```sh
 dotnet run --project SiaInteractive.CControl.Challenge.Api
 ```
+Luego ingresar a https://localhost:60634/swagger/index.html 
 
 ### Ejecutar Pruebas
 
